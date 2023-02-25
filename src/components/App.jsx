@@ -1,7 +1,8 @@
+import React, { Component } from 'react';
 import { AddContact } from './PhoneBook/AddContact';
 import { RenderContact } from './PhoneBook/RenderContacts';
 import { FilterContact } from './PhoneBook/FindContact';
-import React, { Component } from 'react';
+
 import Notiflix from 'notiflix';
 
 export class PhoneBook extends Component {
