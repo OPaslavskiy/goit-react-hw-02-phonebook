@@ -21,7 +21,7 @@ export const AddContact = ({ addContact }) => {
       validationSchema={userSchema}
     >
       <Form>
-        <h2>Name</h2>
+        <h3>Name</h3>
         <Field
           type="text"
           name="name"
@@ -30,7 +30,7 @@ export const AddContact = ({ addContact }) => {
           required
         />
         <ErrorMessage name="name" component="div" />
-        <h2>Number</h2>
+        <h3>Number</h3>
         <Field
           type="tel"
           name="number"
