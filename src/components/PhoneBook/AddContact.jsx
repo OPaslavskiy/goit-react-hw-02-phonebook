@@ -1,4 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import PropTypes from 'prop-types';
 import { object, string } from 'yup';
 import { nanoid } from 'nanoid';
 
@@ -43,4 +44,8 @@ export const AddContact = ({ addContact }) => {
       </Form>
     </Formik>
   );
+};
+
+AddContact.propTypes = {
+  addContact: PropTypes.func.isRequired,
 };

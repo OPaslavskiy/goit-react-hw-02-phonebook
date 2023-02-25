@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export const RenderContact = ({ contacts, deleteContact }) => {
   return (
     <ul>
@@ -12,4 +13,15 @@ export const RenderContact = ({ contacts, deleteContact }) => {
       ))}
     </ul>
   );
+};
+
+RenderContact.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  deleteContact: PropTypes.func.isRequired,
 };
