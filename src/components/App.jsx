@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { AddContact } from './PhoneBook/AddContact';
-import { RenderContact } from './PhoneBook/RenderContacts';
-import { FilterContact } from './PhoneBook/FindContact';
+import { Layout } from '../Layout';
+import { GlobalStyle } from 'GlobalStyle';
+import { AddContact } from './PhoneBook/AddContact/AddContact';
+import { RenderContact } from './PhoneBook/RenderContacts/RenderContacts';
+import { FilterContact } from './PhoneBook/FindContact/FindContact';
 
 import Notiflix from 'notiflix';
 
@@ -51,12 +53,13 @@ export class PhoneBook extends Component {
     );
 
     return (
-      <div>
+      <Layout>
+        <GlobalStyle />
         <h1>Phonebook</h1>
         <AddContact addContact={this.addContact} />
         {this.state.contacts.length > 0 && (
           <div>
-            <h2>Contacts</h2>
+            <h2>Contacts:</h2>
             <FilterContact filter={this.changeFilter} />
             <RenderContact
               contacts={contactsFilter}
@@ -64,7 +67,7 @@ export class PhoneBook extends Component {
             />
           </div>
         )}
-      </div>
+      </Layout>
     );
   }
 }
