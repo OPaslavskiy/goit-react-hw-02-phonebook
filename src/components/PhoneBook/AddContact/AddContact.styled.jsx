@@ -29,7 +29,13 @@ export const Btn = styled.button`
   width: 175px;
   height: 35px;
   margin-top: 20px;
-  border-radius: 8px;
+  border-radius: 20px;
+  border-color: #c5c7c9;
+  :hover,
+  :focus {
+    background-color: #bfbfcc;
+    color: #ec5858;
+  }
 `;
 
 export const TitleForForm = styled.h3`
