@@ -39,10 +39,9 @@ export class PhoneBook extends Component {
   };
 
   deleteContact = id => {
-    this.setState(prevState => {
-      let newList = prevState.contacts.filter(contact => contact.id !== id);
-      return { contacts: [...newList] };
-    });
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   render() {
