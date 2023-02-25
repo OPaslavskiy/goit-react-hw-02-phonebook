@@ -19,12 +19,9 @@ export class PhoneBook extends Component {
 
   addContact = newContact => {
     let isName = false;
-    this.state.contacts.map(contact => {
-      if (contact.name === newContact.name) {
-        isName = true;
-        return;
-      }
-    });
+    this.state.contacts.map(
+      contact => (isName = contact.name === newContact.name)
+    );
 
     if (isName) {
       Notiflix.Notify.info(`${newContact.name} is already in contacts`);
