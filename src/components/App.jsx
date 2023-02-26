@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Layout } from '../Layout';
 import { GlobalStyle } from 'GlobalStyle';
-import { AddContact } from './PhoneBook/AddContact/AddContact';
-import { RenderContact } from './PhoneBook/RenderContacts/RenderContacts';
-import { FilterContact } from './PhoneBook/FindContact/FindContact';
+import { AddContactForm } from './AddContactForm/AddContactForm';
+import { ContactsList } from './ContactsLists/ContactsList';
+import { FindContactForm } from './FindContactForm/FindContactForm';
 
 import Notiflix from 'notiflix';
 
-export class PhoneBook extends Component {
+export class App extends Component {
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -21,9 +21,8 @@ export class PhoneBook extends Component {
   };
 
   addContact = newContact => {
-    let isName = false;
-    this.state.contacts.map(
-      contact => (isName = contact.name === newContact.name)
+    let isName = this.state.contacts.some(
+      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
 
     if (isName) {
@@ -37,7 +36,7 @@ export class PhoneBook extends Component {
   };
 
   changeFilter = e => {
-    const findName = e.target.value;
+    const findName = e.target.value.trim();
     this.setState({ filter: findName.toLocaleLowerCase() });
   };
 
@@ -56,12 +55,12 @@ export class PhoneBook extends Component {
       <Layout>
         <GlobalStyle />
         <h1>Phonebook</h1>
-        <AddContact addContact={this.addContact} />
+        <AddContactForm addContact={this.addContact} />
         {this.state.contacts.length > 0 && (
           <div>
             <h2>Contacts:</h2>
-            <FilterContact filter={this.changeFilter} />
-            <RenderContact
+            <FindContactForm filter={this.changeFilter} />
+            <ContactsList
               contacts={contactsFilter}
               deleteContact={this.deleteContact}
             />

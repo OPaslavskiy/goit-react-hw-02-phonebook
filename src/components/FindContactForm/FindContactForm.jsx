@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, TitleForLabel, Lab } from './FindContact.styled';
-export const FilterContact = ({ filter }) => {
+import { Input, TitleForLabel, Lab } from './FindContactForm.styled';
+export const FindContactForm = ({ filter }) => {
   return (
     <Lab>
       <TitleForLabel>Find contacts by Name</TitleForLabel>
@@ -10,6 +10,6 @@ export const FilterContact = ({ filter }) => {
   );
 };
 
-FilterContact.propTypes = {
+FindContactForm.propTypes = {
   filter: PropTypes.func.isRequired,
 };

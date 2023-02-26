@@ -16,7 +16,7 @@ const userSchema = object({
   number: string().required().min(5).max(20),
 });
 
-export const AddContact = ({ addContact }) => {
+export const AddContactForm = ({ addContact }) => {
   return (
     <Formik
       initialValues={{ name: '', number: '' }}
@@ -54,6 +54,6 @@ export const AddContact = ({ addContact }) => {
   );
 };
 
-AddContact.propTypes = {
+AddContactForm.propTypes = {
   addContact: PropTypes.func.isRequired,
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List, Item, Btn, Name } from './RenderContacts.styled';
-export const RenderContact = ({ contacts, deleteContact }) => {
+import { List, Item, Btn, Name } from './ContactsList.styled';
+export const ContactsList = ({ contacts, deleteContact }) => {
   return (
     <List>
       {contacts.map(({ name, number, id }) => (
@@ -17,7 +17,7 @@ export const RenderContact = ({ contacts, deleteContact }) => {
   );
 };
 
-RenderContact.propTypes = {
+ContactsList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
