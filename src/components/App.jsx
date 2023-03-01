@@ -3,7 +3,7 @@ import { Layout } from '../Layout';
 import { GlobalStyle } from 'GlobalStyle';
 import { AddContactForm } from './AddContactForm/AddContactForm';
 import { ContactsList } from './ContactsLists/ContactsList';
-import { FindContactForm } from './FindContactForm/FindContactForm';
+import { FindContactForm } from './FindContactImput/FindContactImput';
 
 import Notiflix from 'notiflix';
 
@@ -16,8 +16,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   addContact = newContact => {
@@ -30,8 +28,7 @@ export class App extends Component {
       return;
     } else
       this.setState(prevState => {
-        prevState.contacts.push(newContact);
-        return { contacts: [...prevState.contacts] };
+        return { contacts: [...prevState.contacts, newContact] };
       });
   };
 
